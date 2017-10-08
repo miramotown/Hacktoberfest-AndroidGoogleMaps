@@ -11,7 +11,7 @@
     tools:context="com.example.axellageraldinc.androidgmaps.MainActivity">
 
     <Button
-        android:id="@+id/bt_basicmap"
+        android:id="@+id/bt_plainmap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/activity_main_bt_basicmap" />

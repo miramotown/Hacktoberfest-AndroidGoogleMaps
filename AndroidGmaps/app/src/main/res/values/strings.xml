@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">AndroidGmaps</string>
     <string name="activity_main_bt_basicmap">Plain Map</string>
+    <string name="activity_main_bt_searchmap">Search Map</string>
     <string name="title_activity_plain_map">Map</string>
+    <string name="title_activity_search_map">Map</string>
 </resources>

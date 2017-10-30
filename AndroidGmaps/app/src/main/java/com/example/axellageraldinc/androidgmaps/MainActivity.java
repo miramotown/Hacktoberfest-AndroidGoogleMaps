@@ -49,4 +49,31 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
+
+    @OnClick(R.id.bt_searchmap)
+    public void loadSearchMap(){
+        //Ask permission for android M and above
+        rxPermissions
+                .request(Manifest.permission.INTERNET,
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION)
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean result) {
+                        //Permission is granted
+                        if(result){
+                            startActivity(new Intent(MainActivity.this, SearchMapActivity.class));
+                        }
+                        //Permission not granted
+                        else{
+                            Toast.makeText(
+                                    MainActivity.this
+                                    , "You must allow location access permission"
+                                    , Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }
+                });
+
+    }
 }

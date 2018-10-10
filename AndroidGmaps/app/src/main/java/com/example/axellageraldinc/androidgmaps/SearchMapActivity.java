@@ -38,8 +38,14 @@ public class SearchMapActivity extends FragmentActivity implements OnMapReadyCal
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
+                Log.i("onPlaceSelected", "onPlaceSelected");
+                Log.i("onPlaceSelected", String.valueOf(place.getAddress()));
+                Log.i("onPlaceSelected", "LatLng:"+place.getLatLng());
                 try{
+                    Log.i("moveCamera", "LatLng:"+place.getLatLng());
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(place.getLatLng()));
+                    mMap.addMarker(new MarkerOptions().position(place.getLatLng()).title(String.valueOf(place.getName())));
+
                 }
                 catch (Exception e) {
                     Toast.makeText(SearchMapActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -49,6 +55,7 @@ public class SearchMapActivity extends FragmentActivity implements OnMapReadyCal
 
             @Override
             public void onError(Status status) {
+                Log.e("Place Error", "An error occurred: " + status);
                 // TODO: Handle the error.
                 Log.i("Place Error", "An error occurred: " + status);
             }
